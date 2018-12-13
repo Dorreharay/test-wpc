@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Nav from '../Nav';
+
 import styles from './Home.scss';
 
-class Home extends Component {
-  render() {
-    return (
-      <div className={styles.main}>
-
-      </div>
-    )
-  }
+function Home() {
+  return (
+    <div>
+      <Nav />
+    </div>
+  )
 }
 
 export default Home;

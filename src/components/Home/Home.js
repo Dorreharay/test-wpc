@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Nav from '../Nav';
+import { Header, Nav } from '../';
 
 import styles from './Home.scss';
 
 function Home() {
   return (
-    <div>
+    <div >
       <Nav />
+      <Header />
     </div>
   )
 }

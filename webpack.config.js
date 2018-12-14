@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 module.exports = {
   module: {
@@ -22,7 +23,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' 
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader' 
       }
     ],
   },
@@ -35,5 +36,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new ErrorOverlayPlugin(),
   ],
 };

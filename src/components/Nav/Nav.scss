@@ -1,25 +1,125 @@
+$main-color: #FFCC21;
 
 .navhat{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 55px;
-  transition: 0.3s ease;
+  height: 13%;
+  transition: 0.1s ease;
 }
 
 .hiddenNav{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 15px;
-  background: #FFCC21;
-  transition: 0.3s ease;
+  height: 10px;
+  background: $main-color;
+  transition: 0.1s ease;
 }
 .hiddenNavOpen{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 100vh;
-  background: #FFCC21;
-  transition: 0.3s ease;
+  height: 100%;
+  padding-top: 4%;
+  background: $main-color;
+  transition: 0.1s ease;
+  box-sizing: border-box;
 }
+.navContent{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  margin: auto;
+}
+.categories{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  // border: 1px solid green;
+  &
+  .title{
+    padding-left: 7px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Zilla Slab', serif;
+  }
+  .list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+  .item{
+    width: auto;
+    height: 5%;
+    margin: 5px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    color: black;
+    font-size: 12px;
+    font-family: 'Zilla Slab', serif;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 3vh;
+    user-select: none;
+    &:active{
+      color: white;
+      border: 1px solid white;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+.filterBy{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4%;
+  // border: 1px solid red;
+  &
+  .title{
+    padding-left: 7px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Zilla Slab', serif;
+  }
+  .filterItems{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7px;
+    margin-right: 7px;
+    // border: 1.5px solid black;
+    &
+    .item{
+      padding: 5px;
+      padding-left: 0;
+      border: none;
+      background: transparent;
+      // border: 1px solid black;
+      font-family: 'Zilla Slab', serif;
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
+@media (min-width: 600px){
+  .hiddenNav{
+    display: none;
+  }
+  .hiddenNavOpen{
+    display: none;
+  }
+  .navhat{
+    display: none;
+  }
+}
+  

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hammer from 'react-hammerjs';
 
-import styles from './Nav.scss';
+import styles from './NavBar.scss';
 
 class Home extends Component {
   state = {
@@ -96,7 +96,7 @@ class Home extends Component {
     return (
       <Hammer 
         onSwipe={this.handleSwipe}
-        direction={firstSwipe ? 'DIRECTION_DOWN' : 'DIRECTION_UP'}
+        direction={'DIRECTION_ALL'}
       >
         <div>
           <div className={styles.navhat}></div>

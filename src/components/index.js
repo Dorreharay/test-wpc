@@ -1,3 +1,3 @@
 export Home from './Home';
-export Nav from './Nav';
+export NavBar from './NavBar';
 export Header from './Header';

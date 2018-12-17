@@ -5,7 +5,7 @@ import styles from './Header.scss';
 
 function Header(){
   return (
-    <header className={styles.header}>Moya bor`ba</header>
+    <header className={styles.header}>Test</header>
   )
 }
 

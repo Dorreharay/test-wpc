@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className={styles.main}>
       <NavBar />
-      <Header />
+      {/* <Header /> */}
       <Describer />
       <Slider />
       <NewsLine />

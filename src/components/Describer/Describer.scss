@@ -1,0 +1,10 @@
+.describer{
+  width: 100%;
+  height: 200px;
+  background: #BDDEFD;
+}
+@media (min-width: 600px){
+  .describer{
+    display: none;
+  }
+}

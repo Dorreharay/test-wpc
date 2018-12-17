@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Header, NavBar } from '../';
+import { Header, NavBar, NewsLine, Describer, Slider } from '../';
 
 import styles from './Home.scss';
 
 function Home() {
   return (
-    <div >
+    <div className={styles.main}>
       <NavBar />
       <Header />
+      <Describer />
+      <Slider />
+      <NewsLine />
     </div>
   )
 }

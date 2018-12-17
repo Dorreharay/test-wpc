@@ -107,7 +107,7 @@ class Home extends Component {
                   <div className={styles.categories}>
                     <div className={styles.title}>Categories</div>
                     <div className={styles.list}>
-                      {list.map((item) => <button className={styles.item}>{item.title}</button>)}
+                      {list.map((item, index) => <button key={index} className={styles.item}>{item.title}</button>)}
                     </div>
                   </div>
                   <div className={styles.filterBy}>

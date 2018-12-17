@@ -47,6 +47,7 @@
     "react-drag-slider": "^0.1.5",
     "react-hammerjs": "^1.0.1",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-slick": "^0.23.2"
   }
 }

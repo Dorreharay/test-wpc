@@ -96,7 +96,7 @@ class Home extends Component {
     return (
       <Hammer 
         onSwipe={this.handleSwipe}
-        direction={'DIRECTION_ALL'}
+        direction={firstSwipe ? 'DIRECTION_UP' : 'DIRECTION_DOWN'}
       >
         <div>
           <div className={styles.navhat}></div>

@@ -24,7 +24,13 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader' 
-      }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "file-loader",
+        }
+      },
     ],
   },
   plugins: [

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Hammer from 'react-hammerjs';
+import Slider from "react-slick";
+import img from '../../assets/item.jpg';
 
 import styles from './NewsLine.scss';
 
@@ -7,90 +9,51 @@ class NewsLine extends Component {
   state = {
     firstSwipe: false,
     secondSwipe: false,
-    vidlist: [
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: '',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: '',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' 
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: '',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
-      {
-        hat: 'src\assets\defaulthat.jpg',
-        vid: ''
-      },
+    list: [
+      [
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: null,
+          vid: ''
+        }
+      ],
+      [
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: img,
+          vid: ''
+        },
+        {
+          hat: null,
+          vid: ''
+        }
+      ]
     ]
   }
 
@@ -102,18 +65,52 @@ class NewsLine extends Component {
   }
 
   render() {
-    const { vidlist, firstSwipe } = this.state;
+    const { list, firstSwipe } = this.state;
+    const settings = {
+      dots: false,
+      infinite: false,
+      arrows: false,
+      speed: 200,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      initialSlide: 1
+    };
     return (
     <div className={styles.newsLineWrapper}>
-      {vidlist.map((item, index) => 
       <Hammer 
         onPress={this.handleSwipe}
         onSwipe={this.handleSwipe}
         direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
       >
-        <img key={index} className={firstSwipe ? styles.newsComponentOpen : styles.newsComponent} src='https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80'/>
+        <div className={firstSwipe ? styles.newsComponentOpen : styles.newsComponentHidden} />
       </Hammer>
-      )}
+      <Slider {...settings}>
+        {list[0].map((item, index) => 
+          <Hammer 
+            onPress={this.handleSwipe}
+            onSwipe={this.handleSwipe}
+            direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
+          >
+            <div>
+              <img className={styles.newsComponent} src={item.hat} />
+            </div>
+          </Hammer>
+        )}
+      </Slider>
+      <Slider {...settings}>
+        {list[1].map((item, index) => 
+          <Hammer 
+            onPress={this.handleSwipe}
+            onSwipe={this.handleSwipe}
+            direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
+          >
+            <div>
+              <img className={styles.newsComponent} src={item.hat} />
+            </div>
+          </Hammer>
+        )}
+      </Slider>
+      
     </div>
     )
   }

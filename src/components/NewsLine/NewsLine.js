@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Hammer from 'react-hammerjs';
 import Slider from "react-slick";
 import img from '../../assets/item.jpg';
+import { connect } from 'react-redux';
+import { getSlideName } from '../../actions/actions';
 
 import styles from './NewsLine.scss';
 
@@ -13,50 +15,63 @@ class NewsLine extends Component {
       [
         {
           hat: img,
-          vid: ''
+          description: 'first text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'second text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'first text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'second text'
+        },
+        {
+          hat: img,
+          description: 'first text'
         },
         {
           hat: null,
-          vid: ''
+          description: '',
+          end: 'nothing to do here'
         }
       ],
       [
         {
           hat: img,
-          vid: ''
+          description: 'first text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'second text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'first text'
         },
         {
           hat: img,
-          vid: ''
+          description: 'second text'
+        },
+        {
+          hat: img,
+          description: 'first text'
         },
         {
           hat: null,
-          vid: ''
+          end: 'nothing to do here'
         }
       ]
     ]
   }
-
+  componentDidMount(){
+    const { list } = this.state;
+    const { getSlideName } = this.props;
+    getSlideName(list[0][2].description)
+  }
   handleSwipe = () => {
     const { firstSwipe } = this.state;
     this.setState({ 
@@ -66,17 +81,22 @@ class NewsLine extends Component {
 
   render() {
     const { list, firstSwipe } = this.state;
+    const { getSlideName, slideName } = this.props;
     const settings = {
       dots: false,
       infinite: false,
       arrows: false,
       speed: 200,
+      afterChange: (index) => getSlideName(list[0][index].description),
       slidesToShow: 2,
       slidesToScroll: 1,
-      initialSlide: 1
+      initialSlide: this.state.list[0].length / 2 - 1
     };
     return (
     <div className={styles.newsLineWrapper}>
+      <div className={styles.head}>
+        <div className={styles.button}>{slideName}</div>
+      </div>
       <Hammer 
         onPress={this.handleSwipe}
         onSwipe={this.handleSwipe}
@@ -89,10 +109,12 @@ class NewsLine extends Component {
           <Hammer 
             onPress={this.handleSwipe}
             onSwipe={this.handleSwipe}
+            key={index}
             direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
           >
             <div>
-              <img className={styles.newsComponent} src={item.hat} />
+              <img key={index} className={styles.newsComponent} src={item.hat} />
+              <div className={styles.newsComponentDesc}>{item.end ? item.end : ''}</div>
             </div>
           </Hammer>
         )}
@@ -102,10 +124,11 @@ class NewsLine extends Component {
           <Hammer 
             onPress={this.handleSwipe}
             onSwipe={this.handleSwipe}
+            key={index}
             direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
           >
             <div>
-              <img className={styles.newsComponent} src={item.hat} />
+              <img key={index} className={styles.newsComponent} src={item.hat} />
             </div>
           </Hammer>
         )}
@@ -116,4 +139,12 @@ class NewsLine extends Component {
   }
 }
 
-export default NewsLine;
+const mapStateToProps = state => ({
+  slideName: state.newsLine.slideName
+})  
+
+const mapDispatchToProps = dispatch => ({
+  getSlideName: (name) => dispatch(getSlideName(name))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsLine);

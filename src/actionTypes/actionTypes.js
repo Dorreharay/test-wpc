@@ -1,0 +1,3 @@
+export default {
+    GET_NEWSLINE_ITEM_NAME: 'GET_NEWSLINE_ITEM_NAME'
+}

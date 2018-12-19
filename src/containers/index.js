@@ -1,0 +1,1 @@
+export NewsLine from './NewsLine';

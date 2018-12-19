@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, NavBar, NewsLine, Describer, Slider } from '../';
+import { NavBar, NewsLine, Describer } from '../';
 
 import styles from './Home.scss';
 
@@ -8,7 +8,6 @@ function Home() {
     <div className={styles.main}>
       <NavBar />
       <Describer />
-      <Slider />
       <NewsLine />
     </div>
   )

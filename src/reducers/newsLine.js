@@ -1,7 +1,7 @@
-import actionTypes from '../actionTypes/actionTypes';
+import actionTypes from "../actionTypes/actionTypes";
 
 const initState = {
-  slideName: ''
+  slideName: ""
 };
 
 export function newsLine(state = initState, action) {

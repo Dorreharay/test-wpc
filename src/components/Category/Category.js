@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { NavBar, Describer } from 'components';
-import { NewsLine, Test } from 'containers';
+import React from "react";
+import { NavBar, Describer } from "components";
+import { NewsLine, Test } from "containers";
 
-import styles from './Category.scss';
+import styles from "./Category.scss";
 
 function Category() {
   return (
@@ -11,7 +11,7 @@ function Category() {
       <Describer />
       <NewsLine />
     </div>
-  )
+  );
 }
 
 export default Category;

@@ -1,1 +1,1 @@
-export default from './Describer';
+export default from "./Describer";

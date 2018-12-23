@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import Hammer from 'react-hammerjs';
+import React from "react";
 
-import styles from './Header.scss';
+import styles from "./Header.scss";
 
-function Header(){
-  return (
-    <header className={styles.header}>Test</header>
-  )
+function Header() {
+  return <header className={styles.header}>Test</header>;
 }
-
 
 export default Header;

@@ -1,1 +1,1 @@
-export default from './CategoriesGridList';
+export default from "./CategoriesGridList";

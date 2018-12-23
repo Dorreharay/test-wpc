@@ -1,1 +1,1 @@
-export NewsLine from './NewsLine';
+export NewsLine from "./NewsLine";

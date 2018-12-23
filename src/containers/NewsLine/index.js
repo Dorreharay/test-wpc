@@ -1,1 +1,1 @@
-export default from './NewsLine';
+export default from "./NewsLine";

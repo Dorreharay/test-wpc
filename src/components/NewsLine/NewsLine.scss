@@ -1,12 +1,12 @@
-*{
+* {
   box-sizing: border-box;
 }
-.newsLineWrapper{
+.newsLineWrapper {
   width: 160vw;
   transition: 0.3s ease;
   padding-bottom: 10vh;
 }
-.newsComponent{
+.newsComponent {
   display: flex;
   width: 70vw;
   height: 25vh;
@@ -18,7 +18,7 @@
   transition: 0.3s ease;
   box-shadow: 0px 0px 30px #c9c9c9;
 }
-.newsComponentOpen{
+.newsComponentOpen {
   position: fixed;
   top: 15vh;
   left: 5vw;
@@ -30,14 +30,14 @@
   transition: 0.3s ease;
   z-index: 4000;
 }
-.newsComponentDesc{
+.newsComponentDesc {
   position: relative;
   top: -14vh;
   left: 40vw;
   color: black;
   font-family: Comfortaa-Regular, cursive;
 }
-.head{
+.head {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -50,22 +50,22 @@
   font-size: 17px;
   font-family: Comfortaa-Regular, cursive;
 }
-.button{
+.button {
   display: flex;
   flex-direction: row;
 }
-.sortIcon{
+.sortIcon {
   width: 13px;
   height: 13px;
   margin-top: 3px;
   margin-left: 5px;
 }
 
-@media (min-width: 600px){
-  .newsLineWrapper{
+@media (min-width: 600px) {
+  .newsLineWrapper {
     display: none;
   }
-  .newsComponent{
+  .newsComponent {
     display: flex;
     width: 70vw;
     height: 60vh;
@@ -77,12 +77,12 @@
     transition: 0.3s ease;
     box-shadow: 0px 0px 30px #c9c9c9;
   }
-  .slider{
+  .slider {
     display: none;
   }
 }
 
 @font-face {
   font-family: Comfortaa-Regular;
-  src: url('../../assets/fonts/Comfortaa-Regular.ttf');
+  src: url("../../assets/fonts/Comfortaa-Regular.ttf");
 }

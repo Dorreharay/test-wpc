@@ -1,7 +1,7 @@
-*{
+* {
   box-sizing: border-box;
 }
-.header{
+.header {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,14 +9,13 @@
   margin-top: 7vh;
   margin-bottom: 4vh;
   border-radius: 8px;
-  background: #6867EF;
-  &
-  :nth-child(1){
+  background: #6867ef;
+  & :nth-child(1) {
     color: white;
     font-size: 1.2rem;
     font-family: Comfortaa-Bold, cursive;
   }
-  :nth-child(2){
+  :nth-child(2) {
     padding-right: 30%;
     margin-top: 10px;
     color: white;
@@ -24,7 +23,7 @@
     font-family: Comfortaa-Regular, cursive;
   }
 }
-.categoriesGridList{
+.categoriesGridList {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -80,21 +79,21 @@
   //   background: rgba(139, 125, 0, 0.37);
   // }
 }
-.categoriesGridListComponent{
+.categoriesGridListComponent {
   width: 44.5vw;
   height: 15vh;
   margin-bottom: 3vh;
   border-radius: 8px;
-  background-color: rgba(46,204,113,0.4);
+  background-color: rgba(46, 204, 113, 0.4);
 }
-.categoriesGridListComponentHat{
+.categoriesGridListComponentHat {
   width: 44.5vw;
   height: 15vh;
   margin-bottom: 3vh;
   border-radius: 8px;
   z-index: 2000;
 }
-.wrapper{
+.wrapper {
   float: left;
   position: relative;
   left: 0px;
@@ -106,16 +105,16 @@
   background: rgba(212, 135, 34, 0.562);
   z-index: 10;
 }
-img{
+img {
   position: relative;
   z-index: 1;
 }
 
-@media (min-width: 600px){
-  .newsLineWrapper{
+@media (min-width: 600px) {
+  .newsLineWrapper {
     display: none;
   }
-  .newsComponent{
+  .newsComponent {
     display: flex;
     width: 70vw;
     height: 60vh;
@@ -127,20 +126,20 @@ img{
     transition: 0.3s ease;
     box-shadow: 0px 0px 30px #c9c9c9;
   }
-  .slider{
+  .slider {
     display: none;
   }
 }
 
 @font-face {
   font-family: Comfortaa-Bold;
-  src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+  src: url("../../assets/fonts/Comfortaa-Bold.ttf");
 }
 @font-face {
   font-family: Comfortaa-Light;
-  src: url('../../assets/fonts/Comfortaa-Light.ttf');
+  src: url("../../assets/fonts/Comfortaa-Light.ttf");
 }
 @font-face {
   font-family: Comfortaa-Regular;
-  src: url('../../assets/fonts/Comfortaa-Regular.ttf');
+  src: url("../../assets/fonts/Comfortaa-Regular.ttf");
 }

@@ -11,7 +11,7 @@
   width: 70vw;
   height: 25vh;
   margin: 16vw;
-  margin-top: 3vw;
+  margin-top: 4vw;
   margin-bottom: 0vw;
   border-radius: 10px;
   background: #ffffff77;
@@ -20,21 +20,22 @@
 }
 .newsComponentOpen{
   position: fixed;
-  top: 5vh;
+  top: 15vh;
   left: 5vw;
   width: 90vw;
-  height: 90vh;
-  background: #bb0505;
+  height: 70vh;
+  background: #4646469d;
   border-radius: 10px;
-  box-shadow: 0px 2px 10px #8b8b8b6e;
+  border: 2px solid #46464627;
   transition: 0.3s ease;
-  z-index: 1000;
+  z-index: 4000;
 }
 .newsComponentDesc{
   position: relative;
-  top: -16vh;
+  top: -14vh;
   left: 40vw;
-  font-family: 'Zilla Slab', serif;
+  color: black;
+  font-family: Comfortaa-Regular, cursive;
 }
 .head{
   display: flex;
@@ -46,8 +47,8 @@
   padding-bottom: 7vw;
   padding-left: 16vw;
   padding-right: 16vw;
-  font-size: 14px;
-  font-family: 'Zilla Slab', serif;
+  font-size: 17px;
+  font-family: Comfortaa-Regular, cursive;
 }
 .button{
   display: flex;
@@ -65,9 +66,23 @@
     display: none;
   }
   .newsComponent{
-    display: none;
+    display: flex;
+    width: 70vw;
+    height: 60vh;
+    margin: 16vw;
+    margin-top: 4vw;
+    margin-bottom: 0vw;
+    border-radius: 10px;
+    background: #ffffff77;
+    transition: 0.3s ease;
+    box-shadow: 0px 0px 30px #c9c9c9;
   }
   .slider{
     display: none;
   }
+}
+
+@font-face {
+  font-family: Comfortaa-Regular;
+  src: url('../../assets/fonts/Comfortaa-Regular.ttf');
 }

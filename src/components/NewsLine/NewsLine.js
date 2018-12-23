@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Hammer from 'react-hammerjs';
 import Slider from "react-slick";
-import img from '../../assets/item.jpg';
-import { connect } from 'react-redux';
-import { getSlideName } from '../../actions/actions';
+import img from '../../assets/background1.jpg';
 
 import styles from './NewsLine.scss';
 
@@ -15,23 +13,47 @@ class NewsLine extends Component {
       [
         {
           hat: img,
-          description: 'first text'
+          description: '1'
         },
         {
           hat: img,
-          description: 'second text'
+          description: '2'
         },
         {
           hat: img,
-          description: 'first text'
+          description: '3'
         },
         {
           hat: img,
-          description: 'second text'
+          description: '4'
         },
         {
           hat: img,
-          description: 'first text'
+          description: '5'
+        },
+        {
+          hat: img,
+          description: '6'
+        },
+        {
+          hat: img,
+          description: '7'
+        },
+        {
+          hat: img,
+          description: '8'
+        },
+        {
+          hat: img,
+          description: '9'
+        },
+        {
+          hat: img,
+          description: '10'
+        },
+        {
+          hat: img,
+          description: '11'
         },
         {
           hat: null,
@@ -42,26 +64,51 @@ class NewsLine extends Component {
       [
         {
           hat: img,
-          description: 'first text'
+          description: '1'
         },
         {
           hat: img,
-          description: 'second text'
+          description: '2'
         },
         {
           hat: img,
-          description: 'first text'
+          description: '3'
         },
         {
           hat: img,
-          description: 'second text'
+          description: '4'
         },
         {
           hat: img,
-          description: 'first text'
+          description: '5'
+        },
+        {
+          hat: img,
+          description: '6'
+        },
+        {
+          hat: img,
+          description: '7'
+        },
+        {
+          hat: img,
+          description: '8'
+        },
+        {
+          hat: img,
+          description: '9'
+        },
+        {
+          hat: img,
+          description: '10'
+        },
+        {
+          hat: img,
+          description: '11'
         },
         {
           hat: null,
+          description: '',
           end: 'nothing to do here'
         }
       ]
@@ -70,10 +117,14 @@ class NewsLine extends Component {
   componentDidMount(){
     const { list } = this.state;
     const { getSlideName } = this.props;
-    getSlideName(list[0][2].description)
+    const centralIndex = list[0].length / 2 - 1;
+    getSlideName(list[0][centralIndex].description)
+    window.scrollTo(0, 0)
   }
+
   handleSwipe = () => {
     const { firstSwipe } = this.state;
+    e.preventDefault();
     this.setState({ 
       firstSwipe: !firstSwipe
     })
@@ -113,7 +164,12 @@ class NewsLine extends Component {
             direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
           >
             <div>
-              <img key={index} className={styles.newsComponent} src={item.hat} />
+              <img
+                key={index}
+                className={styles.newsComponent}
+                src={img}
+                alt='slick element'
+              />
               <div className={styles.newsComponentDesc}>{item.end ? item.end : ''}</div>
             </div>
           </Hammer>
@@ -128,7 +184,13 @@ class NewsLine extends Component {
             direction={firstSwipe ? 'DIRECTION_ALL' : 'DIRECTION_NONE'}
           >
             <div>
-              <img key={index} className={styles.newsComponent} src={item.hat} />
+              <img
+                key={index}
+                className={styles.newsComponent}
+                src={img}
+                alt='slick element'
+              />
+              <div className={styles.newsComponentDesc}>{item.end ? item.end : ''}</div>
             </div>
           </Hammer>
         )}
@@ -139,12 +201,4 @@ class NewsLine extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  slideName: state.newsLine.slideName
-})  
-
-const mapDispatchToProps = dispatch => ({
-  getSlideName: (name) => dispatch(getSlideName(name))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewsLine);
+export default NewsLine;

@@ -1,14 +1,48 @@
+*{
+  box-sizing: border-box;
+}
 .describer{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  font-family: 'Zilla Slab', serif;
-  box-shadow: 3px solid yellow;
-  background: #eefa80;
+  height: 35vh;
+  font-family: Comfortaa-Regular, cursive;
+  background: #ebebeb;
+}
+.back{
+  float: right;
+  position: relative;
+  top: 5vw;
+  right: 5vw;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: -15vh;
+  border-radius: 50%;
+  background: white;
+  z-index: 10;
+  &
+  .icon{
+    // transform: rotate(180deg);
+  }
+}
+.text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 @media (min-width: 600px){
   .describer{
     display: none;
   }
+}
+
+@font-face {
+  font-family: Comfortaa-Bold;
+  src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+@font-face {
+  font-family: Comfortaa-Light;
+  src: url('../../assets/fonts/Comfortaa-Light.ttf');
+}
+@font-face {
+  font-family: Comfortaa-Regular;
+  src: url('../../assets/fonts/Comfortaa-Regular.ttf');
 }

@@ -1,6 +1,32 @@
+*{
+  box-sizing: border-box;
+}
+button{
+  background: none;
+  border: none;
+}
 
 .main{
   background: white;
-  // background: #1A1A1A;
-  overflow: hidden;
+}
+.header{
+  width: 100%;
+  padding: 5%;
+  padding-left: 7%;
+  padding-right: 20%;
+  font-size: 2em;
+  font-family: PT Mono;
+}
+.settings{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 4%;
+  padding-top: 5%;
+  padding-bottom: 0;
+}
+
+@font-face {
+  font-family: PT Mono;
+  src: url('../../assets/fonts/PT-Mono.ttf');
 }

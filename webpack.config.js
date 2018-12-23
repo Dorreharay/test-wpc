@@ -1,7 +1,13 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  resolve: {
+    alias: {
+      containers: path.resolve(__dirname, 'src/containers'),
+      components: path.resolve(__dirname, 'src/components'),
+   }},
   module: {
     rules: [
       {
@@ -25,9 +31,13 @@ module.exports = {
         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader' 
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(woff(2)?|ttf|eot|svg|jpg|png)$/,
         use: {
           loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts'
+        }
         }
       },
     ],

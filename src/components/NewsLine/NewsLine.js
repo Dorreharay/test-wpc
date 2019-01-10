@@ -171,8 +171,8 @@ class NewsLine extends Component {
                 <img
                   key={index}
                   className={styles.newsComponent}
-                  src={img}
-                  alt="slick element"
+                  src={item.hat}
+                  alt=""
                 />
                 <div className={styles.newsComponentDesc}>
                   {item.end ? item.end : ""}
@@ -193,8 +193,8 @@ class NewsLine extends Component {
                 <img
                   key={index}
                   className={styles.newsComponent}
-                  src={img}
-                  alt="slick element"
+                  src={item.hat}
+                  alt=""
                 />
                 <div className={styles.newsComponentDesc}>
                   {item.end ? item.end : ""}

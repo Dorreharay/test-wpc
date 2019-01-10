@@ -9,6 +9,10 @@ module.exports = {
       components: path.resolve(__dirname, "src/components")
     }
   },
+  devServer: {
+    inline: true,
+    port: 3000
+  },
   module: {
     rules: [
       {

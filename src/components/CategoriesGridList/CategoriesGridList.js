@@ -81,9 +81,9 @@ class CategoriesGridList extends Component {
             key={index}
             direction={firstSwipe ? "DIRECTION_ALL" : "DIRECTION_NONE"}
           >
-            <div>
+            <div className={styles.div}>
               <Link to="/category">
-                <div className={styles.categoriesGridListComponentHat}>
+                <div className={styles.categoriesGridListComponentHat} >
                   <div className={styles.wrapper} />
                   <img
                     key={index}

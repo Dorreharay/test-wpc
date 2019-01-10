@@ -1,25 +1,33 @@
+$card-height: 50vh;
+$card-width: 100%;
+
 * {
   box-sizing: border-box;
+}
+.div{
+  width: 100%;
 }
 .header {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 5vw;
+  width: 40%;
+  padding: 3vw;
+  margin-left: 5vw;
   margin-top: 7vh;
   margin-bottom: 4vh;
   border-radius: 8px;
   background: #6867ef;
-  & :nth-child(1) {
+  & 
+  :nth-child(1) {
     color: white;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-family: Comfortaa-Bold, cursive;
   }
   :nth-child(2) {
     padding-right: 30%;
     margin-top: 10px;
     color: white;
-    font-size: 0.76rem;
+    font-size: 1.5rem;
     font-family: Comfortaa-Regular, cursive;
   }
 }
@@ -30,104 +38,63 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 4vw;
+  padding-top: 1vw;
   transition: 0.3s ease;
-  // &
-  // :nth-child(1) > div > div{
-  //   background: rgba(98, 105, 105, 0.37);
-  // }
-  // &
-  // :nth-child(2) > div > div{
-  //   background: rgba(50, 126, 80, 0.37);
-  // }
-  // &
-  // :nth-child(3) > div > div{
-  //   background: rgba(255, 173, 50, 0.616);
-  // }
-  // &
-  // :nth-child(4) > div > div{
-  //   background: rgba(15, 194, 39, 0.616);
-  // }
-  // &
-  // :nth-child(5) > div > div{
-  //   background: rgba(187, 22, 132, 0.568);
-  // }
-  // &
-  // :nth-child(6) > div > div{
-  //   background: rgba(45, 19, 139, 0.37);
-  // }
-  // &
-  // :nth-child(7) > div > div{
-  //   background: rgba(139, 125, 0, 0.37);
-  // }
-  // &
-  // :nth-child(8) > div > div{
-  //   background: rgba(139, 125, 0, 0.37);
-  // }
-  // &
-  // :nth-child(9) > div > div{
-  //   background: rgba(139, 125, 0, 0.37);
-  // }
-  // &
-  // :nth-child(10) > div > div{
-  //   background: rgba(0, 139, 139, 0.37);
-  // }&
-  // :nth-child(11) > div > div{
-  //   background: rgba(139, 125, 0, 0.37);
-  // }
-  // &
-  // :nth-child(12) > div > div{
-  //   background: rgba(139, 125, 0, 0.37);
-  // }
+  &
+  :nth-child(1) > div > div{
+    background: rgba(98, 105, 100, 0.486);
+  }
 }
+
 .categoriesGridListComponent {
-  width: 44.5vw;
-  height: 15vh;
+  display: none;
+  width: $card-width;
+  height: $card-height;
   margin-bottom: 3vh;
   border-radius: 8px;
-  background-color: rgba(46, 204, 113, 0.4);
 }
 .categoriesGridListComponentHat {
-  width: 44.5vw;
-  height: 15vh;
+  width: $card-width;
+  height: $card-height;
   margin-bottom: 3vh;
   border-radius: 8px;
   z-index: 2000;
+  transition: 0.2s ease;
+  &:hover{
+    .wrapper {
+      height: $card-height;
+      transition: 0.4s ease;
+    }
+  }
 }
 .wrapper {
   float: left;
   position: relative;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 15vh;
-  margin-bottom: -15vh;
+  height: 0vh;
+  margin-bottom: -$card-height;
   border-radius: 8px;
-  background: rgba(212, 135, 34, 0.562);
+  transition: 0.4s ease;
   z-index: 10;
 }
 img {
   position: relative;
   z-index: 1;
+  transition: 0.3s ease;
 }
 
-@media (min-width: 600px) {
-  .newsLineWrapper {
-    display: none;
-  }
-  .newsComponent {
-    display: flex;
-    width: 70vw;
-    height: 60vh;
-    margin: 16vw;
-    margin-top: 4vw;
-    margin-bottom: 0vw;
-    border-radius: 10px;
-    background: #ffffff77;
-    transition: 0.3s ease;
-    box-shadow: 0px 0px 30px #c9c9c9;
-  }
-  .slider {
-    display: none;
+@media (max-width: 600px) {
+  
+  .header {
+    &
+    :nth-child(1) {
+      font-size: 1.2em;
+    }
+    :nth-child(2) {
+      font-size: 0.75rem;
+    }
   }
 }
 

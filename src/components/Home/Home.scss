@@ -10,20 +10,19 @@ button {
   background: white;
 }
 .header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   width: 100%;
-  padding: 5%;
-  padding-left: 7%;
-  padding-right: 20%;
+  padding: 1.5vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
   font-size: 2em;
   font-family: PT Mono;
 }
-.settings {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  padding: 4%;
-  padding-top: 5%;
-  padding-bottom: 0;
+
+svg{
+  cursor: pointer;
 }
 
 @font-face {

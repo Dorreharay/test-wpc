@@ -75,9 +75,6 @@ class Home extends Component {
       },
       {
         title: "catword"
-      },
-      {
-        title: "catword"
       }
     ]
   };

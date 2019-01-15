@@ -3,16 +3,25 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { rootReducer, initState } from "./reducers";
 
-const middlewares = [thunk];
+import thunk from "redux-thunk";
+import createSagaMiddleware from 'redux-saga';
+
+import { rootReducer } from "./reducers";
+import sagaWatcher from './sagas/sagas';
+
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(...middlewares))
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(sagaWatcher)
+
+
 
 ReactDOM.render(
   <Provider store={store}>

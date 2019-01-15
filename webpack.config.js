@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -13,6 +14,7 @@ module.exports = {
     inline: true,
     port: 3000
   },
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
@@ -56,6 +58,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new ErrorOverlayPlugin(),
   ]
 };

@@ -1,0 +1,191 @@
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  padding: 2vw;
+  padding-right: 2.6vw;
+  font-family: RobotoSlab-Regular;
+}
+.firstPart{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+
+  &
+  .choose{  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.7rem;
+    cursor: pointer;
+      &
+      .upperbox{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        min-width: 320px;
+        font-size: 1.3rem;
+      }
+      .lowerboxopened{
+        position: absolute;
+        top: 17vh;
+        left: 2vw;
+        background: rgb(231, 231, 231);
+        transition: 0.3s ease;
+        z-index: 1000;
+        border: 1.5px solid #E74A4A;
+        
+        & 
+        .projectName {
+          display: flex;
+          flex-wrap: wrap;
+          width: 15vw;
+          padding: 0.6vw;
+          border: 1.5px solid transparent;
+          border-bottom: 1.5px solid transparent;
+          font-size: 0.6em;
+          transition: 0.1s ease;
+          list-style: none;
+          
+          &:hover{
+            color: white;
+            background: #E74A4A;
+            border: 1.5px solid transparent;
+            transition: 0.1s ease;
+          }
+        }
+        .projectNameHovered{
+          display: flex;
+          flex-wrap: wrap;
+          width: 15vw;
+          padding: 0.6vw;
+          border: 1.5px solid transparent;
+          border-bottom: 1.5px solid transparent;
+          color: white;
+          background: #E74A4A;
+          font-size: 0.7em;
+          list-style: none;
+        }
+      }
+      .lowerboxclosed{
+        display: none;
+        position: absolute;
+        top: 18vh;
+        left: 2vw;
+        transition: 0.3s ease;
+
+        & > li {
+          display: flex;
+          flex-wrap: wrap;
+          width: 15vw;
+          padding: 0.6vw;
+          // border: 1.5px solid rgb(146, 146, 146);
+          margin-bottom: 0.5vh;
+          font-size: 0.7em;
+          list-style: none;
+          &:hover{
+            background: #ff6969;
+          }
+        }
+      }
+  }
+  .add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 35px;
+    padding: 0.6vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    margin-left: 3vw;
+    border: 0;
+    border-radius: 4vw;
+    color: white;
+    background: #e74a4a;
+    font-family: PT Mono;
+    cursor: pointer;
+  }
+}
+.spread{
+  display: flex;
+  align-items: center;
+}
+.spreadIcon{
+  width: 20px;
+  height: 20px;
+  margin-left: 3.8vw;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.secondPart{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 30px;
+  font-size: 1rem;
+  &
+  .search{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+  }
+  .edit{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    min-width: 175px;
+    padding: 7px;
+    margin-left: 30px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+  }
+  .editActive{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 7px;
+    margin-left: 30px;
+    border-bottom: 2px solid #E74A4A;
+    cursor: pointer;
+  }
+  .settings{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+}
+.firstPartIconOpen{
+  width: 15px;
+  height: 15px;
+  margin-top: 0.4vh;
+  margin-left: 0.8vw;
+  transform: rotate(180deg)
+}
+.firstPartIconClosed{
+  width: 15px;
+  height: 15px;
+  margin-top: 0.4vh;
+  margin-left: 0.8vw;
+}
+
+.secondPartIcon{
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5vw;
+}
+
+@font-face {
+  font-family: PT Mono;
+  src: url("../../assets/fonts/PT-Mono.ttf");
+}
+@font-face {
+  font-family: RobotoSlab-Regular;
+  src: url("../../assets/fonts/RobotoSlab-Regular.ttf");
+}

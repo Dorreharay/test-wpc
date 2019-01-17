@@ -1,17 +1,17 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import { successAsyncAction } from '../actions/actions';
+import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { successAsyncAction } from '../homeActions/homeActions';
 import actionTypes from "../actionTypes/actionTypes";
 
-function* fetchData(action) {
-  const url = 'https://jsonplaceholder.typicode.com/todos';
+function* fetchData() {
+  const url = 'https://jsonplaceholder.typicode.com/users/';
+
   try {
     const data = yield call(fetch, url);
     const todos = yield data.json();
-    const slicedTodos = yield todos.slice(0, 10);
 
-    yield put(successAsyncAction(slicedTodos));
+    yield put(successAsyncAction(todos));
   } catch (e) {
-    console.log(e.message)
+    console.error(e.message)
   }
 }
 

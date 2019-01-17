@@ -1,35 +1,22 @@
-* {
-  box-sizing: border-box;
+html{
+  background: rgb(231, 231, 231);
 }
-button {
-  background: none;
-  border: none;
-}
-
-.main {
-  background: white;
-}
-.header {
+.main{
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-  padding: 1.5vw;
-  padding-left: 10vw;
-  padding-right: 10vw;
-  font-size: 2em;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.default{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  font-size: 1.3rem;
   font-family: PT Mono;
 }
-
-svg{
-  cursor: pointer;
-}
-
 @font-face {
   font-family: PT Mono;
   src: url("../../assets/fonts/PT-Mono.ttf");
 }
-.item{
-  padding: 1vw;
-  border: 1px solid rgba(196, 64, 64, 0.63);
-}
+
+

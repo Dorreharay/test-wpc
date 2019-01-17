@@ -1,0 +1,83 @@
+$hh: 55px;
+
+* {
+  box-sizing: border-box;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+.main{
+  background: #E9E9E9;
+}
+header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $hh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background: #141414;
+}
+.logotype{
+  width: 4vh;
+  height: 4vh;
+  background: #f1f1f1;
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: $hh;
+}
+ul{
+  display: flex;
+  justify-content: space-between;
+  width: 38%;
+  margin-left: 4vw;
+  list-style: none;
+  padding: 0;
+}
+.tab{
+  display: flex;
+  align-items: center;
+  height: $hh;
+  padding: 0.5vh;
+  color: white;
+  transition: 0.2s ease;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  font-family: PT Mono;
+  cursor: pointer;
+
+}
+.tabHovered{
+  display: flex;
+  align-items: center;
+  height: $hh;
+  padding: 0.5vh;
+  color: white;
+  transition: 0.2s ease;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid #e74a4a;
+  transition: 0.2s ease;
+  font-family: PT Mono;
+  cursor: pointer;
+}
+.exit{
+  height: 6vh;
+  border: 0;
+  color: white;
+  background: none;
+  font-size: 1em;
+  font-family: PT Mono;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: PT Mono;
+  src: url("../../assets/fonts/PT-Mono.ttf");
+}

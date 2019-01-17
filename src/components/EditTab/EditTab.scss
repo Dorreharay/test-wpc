@@ -1,0 +1,60 @@
+*{
+  box-sizing: border-box;
+}
+.editTab{
+  position: fixed;
+  width: 850px;
+  height: 100%;
+  top: 0;
+  left: -850px;
+  background: #fcfcfc;
+  transition: 0.1s ease;
+}
+.editTabToggled{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 850px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 3vw;
+  box-shadow: 0 0 50px rgba(243, 114, 114, 0.562);
+  background: #fcfcfc;
+  transition: 0.1s ease;
+}
+.colContainer{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 700px;
+  height: 95%;
+
+  &
+  .firstColumn{
+    width: 48%;
+    height: 100%;
+    border: 2px solid red;
+  }
+  .secondColumn{
+    width: 48%;
+    height: 100%;
+    margin-left: 10px;
+    border: 2px solid red;
+  }
+}
+
+.close{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  color: #E74A4A;
+  font-size: 2rem;
+  cursor: pointer;
+}
+

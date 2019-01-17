@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CategoriesGridList, NavBar, Header } from "components";
+import { Header, TableMenu, OrdersTable, Loader } from "components";
 
 import styles from "./Home.scss";
 
@@ -8,24 +8,60 @@ class Home extends Component {
     settingsToggled: false
   };
 
-  componentDidMount() {
-    const { startAsyncAction } = this.props;
-    startAsyncAction()
-  };
-
   handleAsyncAction = () => {
     const { startAsyncAction } = this.props;
     startAsyncAction()
   };
 
+  chooseProject = (projectName) => {
+    this.props.chooseProject(projectName)
+  }
+  chooseOrdersListType = (orderListType) => {
+    this.props.chooseOrdersListType(orderListType)
+  }
+
   render() {
-    const { data, loading } = this.props;
+    const {
+      toggleEditMode,
+      editMode,
+      copiedToClickboard,
+      projectName,
+      projectsList,
+      ordersList,
+      orderTypes,
+      location,
+      loading,
+      startAsyncAction,
+      copyToClipboardAction,
+      resetClipboard
+    } = this.props;
 
     return (
-      <div>
-        <div onClick={this.handleAsyncAction}>getData</div>
+      <div className={styles.main}>
+        <Header currentLocation={location.pathname} />
+        <TableMenu
+          projectName={projectName}
+          projectsList={projectsList}
+          chooseProject={this.chooseProject}
+          toggleEditMode={toggleEditMode}
+          editMode={editMode}
+        />
+        {projectName === 'Виберіть проект' ?
+          <div className={styles.default} >Виберіть проект зі списку для початку роботи з системою</div> :
+          <OrdersTable
+            projectName={projectName}
+            ordersList={ordersList}
+            orderTypes={orderTypes}
+            chooseOrdersListType={this.chooseOrdersListType}
+            startAsyncAction={startAsyncAction}
+            copyToClipboardAction={copyToClipboardAction}
+            resetClipboard={resetClipboard}
+            copiedToClickboard={copiedToClickboard}
+            editMode={editMode}
+            loading={loading}
+          />}
 
-        {loading ? <div>Loading...</div> : data.map((item, index) => <div className={styles.item} key={index}>{item.title}</div>)}
+        {loading ? <Loader /> : null}
       </div>
     );
   }

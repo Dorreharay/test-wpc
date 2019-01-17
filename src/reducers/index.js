@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { newsLine } from "./newsLine";
+import { HomeReducer } from "./HomeReducer";
 
 export const rootReducer = combineReducers({
-  newsLine: newsLine
+  Home: HomeReducer
 });

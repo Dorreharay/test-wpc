@@ -33,29 +33,17 @@ header{
   width: 100%;
   height: $hh;
 }
-.ulNav{
-  width: auto;
+ul{
+  display: flex;
+  justify-content: space-between;
+  width: 38%;
+  margin-left: 4vw;
   list-style: none;
   padding: 0;
-  &
-  :nth-child(1){
-    width: 130px;
-  }
-  :nth-child(2){
-    width: 240px;
-  }
-  :nth-child(3){
-    width: 100px;
-  }
-  :nth-child(4){
-    min-width: 240px;
-  }
 }
 .tab{
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 180px;
   height: $hh;
   padding: 0.5vh;
   color: white;
@@ -64,12 +52,11 @@ header{
   border-bottom: 3px solid transparent;
   font-family: PT Mono;
   cursor: pointer;
+
 }
 .tabHovered{
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 180px;
   height: $hh;
   padding: 0.5vh;
   color: white;

@@ -1,8 +1,8 @@
-export Category from "./Category";
-export NavBar from "./NavBar";
-export Header from "./Header";
-export NewsLine from "./NewsLine";
-export Describer from "./Describer";
-
 export Home from "./Home";
-export CategoriesGridList from "./CategoriesGridList";
+export Header from "./Header";
+export TableMenu from "./TableMenu";
+export OrdersTable from './OrdersTable';
+export Profile from './Profile';
+export Loader from "./Loader";
+export Alert from './Alert';
+export EditTab from './EditTab';

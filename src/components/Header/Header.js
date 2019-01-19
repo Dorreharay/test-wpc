@@ -7,7 +7,8 @@ function Header({ currentLocation }) {
 
   return (
     <header>
-      {/* <div className={styles.logotype}></div> */}
+      {/* teamHub */}
+      {/* <div className={styles.logotype}>teamHub</div> */}
       <div className={styles.nav}>
         <ul className={styles.ulNav}>
           <Link to='/' className={currentLocation === '/' ? styles.tabHovered : styles.tab}>Замовлення</Link>

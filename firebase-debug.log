@@ -1,0 +1,17 @@
+[debug] [2019-01-19T13:53:43.712Z] ----------------------------------------------------------------------
+[debug] [2019-01-19T13:53:43.715Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2019-01-19T13:53:43.715Z] CLI Version:   6.3.0
+[debug] [2019-01-19T13:53:43.715Z] Platform:      linux
+[debug] [2019-01-19T13:53:43.715Z] Node Version:  v8.11.2
+[debug] [2019-01-19T13:53:43.715Z] Time:          Sat Jan 19 2019 15:53:43 GMT+0200 (EET)
+[debug] [2019-01-19T13:53:43.715Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-19T13:53:43.725Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-19T13:53:43.725Z] > authorizing via signed-in user
+[debug] [2019-01-19T13:53:43.725Z] [iam] checking project test-rnp for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-01-19T13:53:43.727Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-01-19T13:53:43.727Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-01-19T13:53:43.936Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-19T13:53:43.962Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/test-rnp:testIamPermissions  
+

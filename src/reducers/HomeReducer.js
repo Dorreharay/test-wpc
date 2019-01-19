@@ -31,7 +31,7 @@ const initState = {
       className: 'projectName'
     }
   ],
-  ordersList: [],
+  ordersList: [[]],
   orderTypes: [
     {
       typeDesc: 'isWaiting',

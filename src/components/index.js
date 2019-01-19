@@ -6,3 +6,4 @@ export Profile from './Profile';
 export Loader from "./Loader";
 export Alert from './Alert';
 export EditTab from './EditTab';
+export Pagination from './Pagination';

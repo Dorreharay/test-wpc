@@ -20,6 +20,10 @@ class Home extends Component {
     this.props.chooseOrdersListType(orderListType)
   }
 
+  applyEditChanges = (formData) => {
+    this.props.applyEditChanges(formData)
+  }
+
   render() {
     const {
       toggleEditMode,
@@ -33,12 +37,15 @@ class Home extends Component {
       loading,
       startAsyncAction,
       copyToClipboardAction,
-      resetClipboard
+      resetClipboard,
+      isEdited
     } = this.props;
 
+
+    console.log(this.props.editMode)
     return (
-      <div className={styles.main}>
-        <Header currentLocation={location.pathname} />
+      <div className={location.pathname === '/orders' ? styles.mainActive : styles.main}>
+
         <TableMenu
           projectName={projectName}
           projectsList={projectsList}
@@ -58,7 +65,9 @@ class Home extends Component {
             resetClipboard={resetClipboard}
             copiedToClickboard={copiedToClickboard}
             editMode={editMode}
+            applyEditChanges={this.applyEditChanges}
             loading={loading}
+            isEdited={isEdited}
           />}
 
         {loading ? <Loader /> : null}
@@ -68,3 +77,4 @@ class Home extends Component {
 }
 
 export default Home;
+

@@ -1,5 +1,16 @@
 import { connect } from "react-redux";
-import { startAsyncAction, copyToClipboardAction, resetClipboard, chooseProject, chooseOrdersListType, toggleEditMode } from "../../homeActions/homeActions";
+
+import {
+  startAsyncAction,
+  copyToClipboardAction,
+  resetClipboard,
+  chooseProject,
+  chooseOrdersListType,
+  toggleEditMode,
+  applyEditChanges,
+
+} from "../../homeActions/homeActions";
+
 import Home from "../../components/Home";
 
 const mapStateToProps = state => ({
@@ -10,7 +21,8 @@ const mapStateToProps = state => ({
   ordersList: state.Home.ordersList,
   orderTypes: state.Home.orderTypes,
   copiedToClickboard: state.Home.copiedToClickboard,
-  editMode: state.Home.editMode
+  editMode: state.Home.editMode,
+  isEdited: state.Home.isEdited
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,10 +31,15 @@ const mapDispatchToProps = dispatch => ({
   resetClipboard: () => dispatch(resetClipboard()),
   chooseProject: (projectName) => dispatch(chooseProject(projectName)),
   chooseOrdersListType: (orderListType) => dispatch(chooseOrdersListType(orderListType)),
-  toggleEditMode: () => dispatch(toggleEditMode())
+  toggleEditMode: () => dispatch(toggleEditMode()),
+  applyEditChanges: (formData) => dispatch(applyEditChanges(formData))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
+
+
+connect(mapStateToProps, mapDispatchToProps)(Home)
+

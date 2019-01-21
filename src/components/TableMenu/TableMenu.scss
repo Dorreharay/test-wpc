@@ -31,8 +31,9 @@
       }
       .lowerboxopened{
         position: absolute;
-        top: 17vh;
+        top: 16vh;
         left: 2vw;
+        min-width: 130px;
         background: rgb(231, 231, 231);
         transition: 0.3s ease;
         z-index: 1000;
@@ -42,8 +43,7 @@
         .projectName {
           display: flex;
           flex-wrap: wrap;
-          width: 15vw;
-          padding: 0.6vw;
+          padding: 0.8vw 1vw 0.8vw 1vw;
           border: 1.5px solid transparent;
           border-bottom: 1.5px solid transparent;
           font-size: 0.6em;
@@ -60,8 +60,7 @@
         .projectNameHovered{
           display: flex;
           flex-wrap: wrap;
-          width: 15vw;
-          padding: 0.6vw;
+          padding: 0.8vw 1vw 0.8vw 1vw;
           border: 1.5px solid transparent;
           border-bottom: 1.5px solid transparent;
           color: white;

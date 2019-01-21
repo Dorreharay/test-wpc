@@ -1,18 +1,17 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
-import { successAsyncAction } from '../homeActions/homeActions';
+import { successAsyncAction, startUpdateOrder, successUpdateOrder } from '../homeActions/homeActions';
 import actionTypes from "../actionTypes/actionTypes";
-import data from '../reducers/randomData.json';
 
 function* fetchData() {
-  const url = 'https://jsonplaceholder.typicode.com/users/';
+  const url = 'http://localhost:8000/orders';
   const pageSize = 30;
   try {
-    // const data = yield call(fetch, url);
-    // const todos = yield data.json();
+    const data = yield call(fetch, url);
+    const todos = yield data.json();
     let results = [];
 
-    while (data.length) {
-      results.push(data.splice(0, pageSize));
+    while (todos.length) {
+      results.push(todos.splice(0, pageSize));
     }
 
     yield put(successAsyncAction(results));
@@ -21,8 +20,31 @@ function* fetchData() {
   }
 }
 
+function* asyncUpdateOrder(action) {
+  const url = `http://localhost:8000/orders/${action.payload.formData.id}`;
+
+  try {
+    yield put({ type: actionTypes.START_UPDATE_ORDER })
+    yield call(fetch, url, {
+      method: 'PUT',
+      body: JSON.stringify(action.payload.formData),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*"
+      },
+    });
+    yield put({ type: actionTypes.SUCCESS_UPDATE_ORDER })
+  } catch {
+
+  }
+}
+
+
 function* sagaWatcher() {
-  yield takeLatest(actionTypes.START_ASYNC_ACTION, fetchData);
+  yield [
+    takeLatest(actionTypes.START_ASYNC_ACTION, fetchData),
+    takeLatest(actionTypes.APPLY_EDIT_CHANGES, asyncUpdateOrder)
+  ];
 }
 
 

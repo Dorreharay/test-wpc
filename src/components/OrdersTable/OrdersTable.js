@@ -11,16 +11,17 @@ class OrdersTable extends Component {
     checked: [],
     nonunique: [],
     checkedAll: false,
-    editTabToggled: false
+    editTabToggled: false,
+    formData: {}
   }
   componentDidMount() {
     const { startAsyncAction } = this.props;
     startAsyncAction()
   }
   componentDidUpdate(prevProps, prevState) {
-    const { startAsyncAction, projectName, editMode } = this.props;
+    const { startAsyncAction, applyEditChanges, projectName, editMode, isEdited } = this.props;
 
-    if (prevProps.projectName !== projectName) {
+    if (prevProps.projectName !== projectName || isEdited == true) {
       startAsyncAction()
     }
     if (prevProps.editMode !== editMode) {
@@ -47,14 +48,39 @@ class OrdersTable extends Component {
   }
 
   toggleEditTab = (editIndex) => {
-    const { checked, editTabToggled } = this.state;
-    const { editMode } = this.props;
+    const { checked, editTabToggled, page } = this.state;
+    const { ordersList } = this.props;
+
+    const editedRow = ordersList[page][editIndex];
 
     this.setState({
       editTabToggled: !editTabToggled,
       editIndex: editIndex,
       checked: checked.includes(editIndex) ?
-        checked.filter((item) => item !== editIndex) : [...new Set([...checked, editIndex])]
+        checked.filter((item) => item !== editIndex) : [...new Set([...checked, editIndex])],
+      formData: {
+        id: editedRow.id,
+        index: editedRow.index,
+        name: editedRow.name,
+        email: editedRow.email,
+        guid: editedRow.guid,
+        balance: editedRow.balance,
+        phone: editedRow.phone,
+        address: editedRow.address,
+        registered: editedRow.registered,
+      }
+    })
+
+  }
+
+  handleNewInput = (e) => {
+    const { formData } = this.state;
+
+    this.setState({
+      formData: {
+        ...formData,
+        [e.target.id]: e.target.value
+      }
     })
   }
 
@@ -70,8 +96,8 @@ class OrdersTable extends Component {
   toNextPage = () => this.setState({ page: this.state.page !== this.props.ordersList.length - 1 ? this.state.page + 1 : this.state.page })
 
   render() {
-    const { checked, editTabToggled, editIndex, page } = this.state;
-    const { ordersList, chooseOrdersListType, orderTypes, copiedToClickboard, editMode, loading } = this.props;
+    const { checked, editTabToggled, editIndex, page, formData } = this.state;
+    const { ordersList, chooseOrdersListType, orderTypes, copiedToClickboard, editMode, applyEditChanges } = this.props;
 
     return (
       <div>
@@ -113,7 +139,7 @@ class OrdersTable extends Component {
               <th>Адреса</th>
             </tr>
             {ordersList[page].map((order, index) =>
-              <tr key={index} style={{ background: checked.includes(index) ? '#ffecc4' : 'white' }}>
+              <tr key={index} style={{ background: checked.includes(index) ? '#fff5dc' : 'white' }}>
                 {editMode ?
                   <td>
                     <EditIcon onClick={() => this.toggleEditTab(index)} className={styles.checkbox} />
@@ -125,10 +151,10 @@ class OrdersTable extends Component {
                     </div>
                   </td>}
                 <td onDoubleClick={() => this.handleCheck(index)} >
-                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, new Date().toDateString())}>{order.registered}</div>
+                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.registered)}>{order.registered}</div>
                 </td>
                 <td onDoubleClick={() => this.handleCheck(index)} >
-                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.guid)} >{order.guid}</div>
+                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.index)} >{order.index}</div>
                 </td>
                 <td onDoubleClick={() => this.handleCheck(index)} >
                   <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.email)}>{order.email}</div>
@@ -150,18 +176,22 @@ class OrdersTable extends Component {
             togglePage={this.togglePage}
             page={page}
             toPreviousPage={this.toPreviousPage}
-            toNextPage={this.toNextPage} />
+            toNextPage={this.toNextPage}
+          />
         </div>
 
         {copiedToClickboard ? <Alert message='Скопійовано' ></Alert> : null}
 
         <EditTab
           toggleEditTab={this.toggleEditTab}
+          handleNewInput={this.handleNewInput}
           editMode={editMode}
           editTabToggled={editTabToggled}
           ordersList={ordersList}
           editIndex={editIndex}
           page={page}
+          formData={formData}
+          applyEditChanges={applyEditChanges}
         />
       </div >
     )

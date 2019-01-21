@@ -33,3 +33,8 @@ export const resetClipboard = () => ({
 export const toggleEditMode = () => ({
   type: actionTypes.TOGGLE_EDIT_MODE,
 })
+
+export const applyEditChanges = (formData) => ({
+  type: actionTypes.APPLY_EDIT_CHANGES,
+  payload: { formData }
+})

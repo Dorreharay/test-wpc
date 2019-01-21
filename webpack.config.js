@@ -1,9 +1,15 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/'
+  },
   resolve: {
     alias: {
       containers: path.resolve(__dirname, "src/containers"),
@@ -12,7 +18,8 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true,
   },
   devtool: 'cheap-module-source-map',
   module: {

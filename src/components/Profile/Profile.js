@@ -9,7 +9,7 @@ function Profile({ currentLocation }) {
 
   return (
     <div>
-      <Header currentLocation={location.pathname} />
+      {/* <Header currentLocation={location.pathname} /> */}
     </div>
   )
 }

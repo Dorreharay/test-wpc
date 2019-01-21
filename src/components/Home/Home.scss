@@ -1,11 +1,21 @@
 html{
-  background: rgb(226, 226, 226);;
+  background: rgb(231, 231, 231)
 }
 .main{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
 }
+.mainActive{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
 .default{
   display: flex;
   align-items: center;

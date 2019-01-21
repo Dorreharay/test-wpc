@@ -4,6 +4,7 @@ const initState = {
   data: [],
   copiedToClickboard: false,
   editMode: false,
+  isEdited: false,
   projectName: 'Складська система EasyBuy', // Виберіть проект
   projectsList: [
     {
@@ -104,6 +105,18 @@ export function HomeReducer(state = initState, action) {
       return {
         ...state,
         editMode: !state.editMode
+      }
+    case actionTypes.START_UPDATE_ORDER:
+      return {
+        ...state,
+        loading: true,
+        isEdited: true
+      }
+    case actionTypes.SUCCESS_UPDATE_ORDER:
+      return {
+        ...state,
+        loading: false,
+        isEdited: false
       }
     default:
       return state;

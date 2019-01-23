@@ -1,38 +1,40 @@
-import actionTypes from "../actionTypes/actionTypes";
+import actionTypes from '../actionTypes/actionTypes';
 
 const initState = {
   data: [],
   copiedToClickboard: false,
   editMode: false,
+  deleteMode: false,
   isEdited: false,
   projectName: 'Складська система EasyBuy', // Виберіть проект
   projectsList: [
     {
       name: 'Магазин одягу',
-      className: 'projectName'
+      className: 'projectName',
     },
     {
       name: 'Система доставки Apex.com',
-      className: 'projectName'
+      className: 'projectName',
     },
     {
       name: 'Продуктовий магазин',
-      className: 'projectName'
+      className: 'projectName',
     },
     {
       name: 'Складська система EasyBuy',
-      className: 'projectName'
+      className: 'projectName',
     },
     {
       name: 'CRM Servis.vn.ua',
-      className: 'projectName'
+      className: 'projectName',
     },
     {
       name: 'TopGoods',
-      className: 'projectName'
-    }
+      className: 'projectName',
+    },
   ],
   ordersList: [[]],
+  orderListTypeCurrent: 'isWaiting',
   orderTypes: [
     {
       typeDesc: 'isWaiting',
@@ -42,23 +44,23 @@ const initState = {
     {
       typeDesc: 'isProcessing',
       typeName: 'В обробці',
-      className: 'orderTypeDefault'
+      className: 'orderTypeDefault',
     },
     {
       typeDesc: 'isSent',
       typeName: 'Відправлені',
-      className: 'orderTypeDefault'
+      className: 'orderTypeDefault',
     },
     {
       typeDesc: 'isReceived',
       typeName: 'Отримані',
-      className: 'orderTypeDefault'
+      className: 'orderTypeDefault',
     },
     {
       typeDesc: 'isArchived',
       typeName: 'Архів',
-      className: 'orderTypeDefault'
-    }
+      className: 'orderTypeDefault',
+    },
   ],
 };
 
@@ -68,56 +70,69 @@ export function HomeReducer(state = initState, action) {
       return {
         ...state,
         ordersList: action.payload.data,
-        loading: false
+        loading: false,
       };
 
     case actionTypes.START_ASYNC_ACTION:
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
 
     case actionTypes.CHOOSE_PROJECT:
       return {
         ...state,
         projectName: action.payload.projectName,
-        projectsList: state.projectsList.map((project, index) => project.name === action.payload.projectName ?
-          ({ ...project, className: 'projectNameHovered' }) : ({ ...project, className: 'projectName' }))
-      }
+        projectsList: state.projectsList.map((project, index) =>
+          project.name === action.payload.projectName
+            ? { ...project, className: 'projectNameHovered' }
+            : { ...project, className: 'projectName' },
+        ),
+      };
     case actionTypes.CHOOSE_ORDER_LIST_TYPE:
       return {
         ...state,
-        orderListType: action.payload.orderListType,
-        orderTypes: state.orderTypes.map((orderType) => orderType.typeDesc === action.payload.orderListType ?
-          ({ ...orderType, className: 'orderTypeActive' }) : ({ ...orderType, className: 'orderTypeDefault' }))
-      }
+        orderListTypeCurrent: action.payload.orderListType,
+        orderTypes: state.orderTypes.map((orderType) =>
+          orderType.typeDesc === action.payload.orderListType
+            ? { ...orderType, className: 'orderTypeActive' }
+            : { ...orderType, className: 'orderTypeDefault' },
+        ),
+      };
     case actionTypes.COPY_TO_CLICKBOARD:
       return {
         ...state,
-        copiedToClickboard: action.payload.copiedToClickboard
-      }
+        copiedToClickboard: action.payload.copiedToClickboard,
+      };
     case actionTypes.RESET_CLICKBOARD:
       return {
         ...state,
-        copiedToClickboard: action.payload.copiedToClickboard
-      }
+        copiedToClickboard: action.payload.copiedToClickboard,
+      };
     case actionTypes.TOGGLE_EDIT_MODE:
       return {
         ...state,
-        editMode: !state.editMode
-      }
+        editMode: !state.editMode,
+        deleteMode: false,
+      };
     case actionTypes.START_UPDATE_ORDER:
       return {
         ...state,
         loading: true,
-        isEdited: true
-      }
+        isEdited: true,
+      };
     case actionTypes.SUCCESS_UPDATE_ORDER:
       return {
         ...state,
         loading: false,
-        isEdited: false
-      }
+        isEdited: false,
+      };
+    case actionTypes.TOGGLE_DELETE_MODE:
+      return {
+        ...state,
+        deleteMode: !state.deleteMode,
+        editMode: false,
+      };
     default:
       return state;
   }

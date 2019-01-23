@@ -6,6 +6,8 @@ import EditIcon from './edit';
 import SettingsIcon from './settings';
 import LeftArrowIcon from './left-arrow';
 import RightArrowIcon from './right-arrow';
+import SuccessIcon from './success-icon';
+import DeleteIcon from './delete';
 
 export {
   CopyIcon,
@@ -15,5 +17,7 @@ export {
   EditIcon,
   SettingsIcon,
   LeftArrowIcon,
-  RightArrowIcon
-}
+  RightArrowIcon,
+  SuccessIcon,
+  DeleteIcon,
+};

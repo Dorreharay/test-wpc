@@ -1,1 +1,1 @@
-export default from "./OrdersTable";
+export default from './OrdersTable';

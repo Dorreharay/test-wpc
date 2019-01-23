@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 8000;
-var cors = require('cors')
+const cors = require('cors')
 
 const db = require('./queries.js')
 
@@ -15,6 +15,7 @@ app.use(
 )
 
 app.get('/orders', db.getOrders)
+app.get('/orders/orderType/:ordertype', db.getOrderType)
 app.get('/orders/:id', db.getOrderById)
 app.post('/orders', db.createOrder)
 app.put('/orders/:id', db.updateOrder)

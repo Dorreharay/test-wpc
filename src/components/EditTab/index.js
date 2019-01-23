@@ -1,1 +1,1 @@
-export default from "./EditTab";
+export default from './EditTab';

@@ -1,1 +1,1 @@
-export default from "./TableMenu";
+export default from './TableMenu';

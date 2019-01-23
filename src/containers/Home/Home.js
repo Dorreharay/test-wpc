@@ -1,45 +1,51 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import {
-  startAsyncAction,
+  getOrders,
   copyToClipboardAction,
   resetClipboard,
   chooseProject,
   chooseOrdersListType,
   toggleEditMode,
+  toggleDeleteMode,
   applyEditChanges,
+  deleteOrder,
+} from '../../actions/homeActions';
 
-} from "../../homeActions/homeActions";
+import Home from '../../components/Home';
 
-import Home from "../../components/Home";
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.Home.data,
   loading: state.Home.loading,
   projectName: state.Home.projectName,
   projectsList: state.Home.projectsList,
   ordersList: state.Home.ordersList,
   orderTypes: state.Home.orderTypes,
+  orderListTypeCurrent: state.Home.orderListTypeCurrent,
   copiedToClickboard: state.Home.copiedToClickboard,
   editMode: state.Home.editMode,
-  isEdited: state.Home.isEdited
+  deleteMode: state.Home.deleteMode,
+  isEdited: state.Home.isEdited,
 });
 
-const mapDispatchToProps = dispatch => ({
-  startAsyncAction: () => dispatch(startAsyncAction()),
+const mapDispatchToProps = (dispatch) => ({
+  getOrders: (orderListTypeCurrent) => dispatch(getOrders(orderListTypeCurrent)),
   copyToClipboardAction: () => dispatch(copyToClipboardAction()),
   resetClipboard: () => dispatch(resetClipboard()),
   chooseProject: (projectName) => dispatch(chooseProject(projectName)),
   chooseOrdersListType: (orderListType) => dispatch(chooseOrdersListType(orderListType)),
   toggleEditMode: () => dispatch(toggleEditMode()),
-  applyEditChanges: (formData) => dispatch(applyEditChanges(formData))
+  toggleDeleteMode: () => dispatch(toggleDeleteMode()),
+  applyEditChanges: (formData) => dispatch(applyEditChanges(formData)),
+  deleteOrder: (index) => dispatch(deleteOrder(index)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Home);
 
-
-connect(mapStateToProps, mapDispatchToProps)(Home)
-
+connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);

@@ -1,17 +1,18 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
 import { successAsyncAction, startUpdateOrder, successUpdateOrder } from '../homeActions/homeActions';
 import actionTypes from "../actionTypes/actionTypes";
+import randomData from '../reducers/randomData.json';
 
 function* fetchData() {
   const url = 'http://localhost:8000/orders';
   const pageSize = 30;
   try {
-    const data = yield call(fetch, url);
-    const todos = yield data.json();
+    // const data = yield call(fetch, url);
+    // const todos = yield data.json();
     let results = [];
 
-    while (todos.length) {
-      results.push(todos.splice(0, pageSize));
+    while (randomData.length) {
+      results.push(randomData.splice(0, pageSize));
     }
 
     yield put(successAsyncAction(results));

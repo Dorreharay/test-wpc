@@ -6,7 +6,7 @@ import styles from "./Header.scss";
 function Header({ currentLocation }) {
 
   return (
-    <header>
+    <header className={styles.header}>
       {/* teamHub */}
       {/* <div className={styles.logotype}>teamHub</div> */}
       <div className={styles.nav}>

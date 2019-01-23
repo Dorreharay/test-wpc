@@ -101,20 +101,21 @@ class OrdersTable extends Component {
 
     return (
       <div>
-        <Pagination
-          className={styles.paginationTop}
-          ordersList={ordersList}
-          togglePage={this.togglePage}
-          page={page}
-          toPreviousPage={this.toPreviousPage}
-          toNextPage={this.toNextPage}
-        />
+          <Pagination
+              className={styles.paginationTop}
+              ordersList={ordersList}
+              togglePage={this.togglePage}
+              page={page}
+              toPreviousPage={this.toPreviousPage}
+              toNextPage={this.toNextPage}
+            />
         <ul className={styles.orderTypes}>
           {orderTypes.map((orderType, index) =>
             <li key={index} className={styles[orderType.className]} onClick={() =>
               chooseOrdersListType(orderType.typeDesc)}>{orderType.typeName}</li>)}
+              
         </ul>
-
+        
         <table>
           <tbody>
             <tr>
@@ -154,7 +155,7 @@ class OrdersTable extends Component {
                   <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.registered)}>{order.registered}</div>
                 </td>
                 <td onDoubleClick={() => this.handleCheck(index)} >
-                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.index)} >{order.index}</div>
+                  <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.guid)} >{order.guid}</div>
                 </td>
                 <td onDoubleClick={() => this.handleCheck(index)} >
                   <div className={styles.innerText} onClick={(e) => this.copyToClipboard(e, order.email)}>{order.email}</div>

@@ -1,9 +1,14 @@
-$hh: 55px;
+$hh: 40px;
 
 * {
   box-sizing: border-box;
 }
-
+html{
+  font-size: 10px;
+}
+body{
+  font-size: 13px;
+}
 a{
   color: white;
   text-decoration: none;
@@ -12,7 +17,7 @@ a{
 .main{
   background: #E9E9E9;
 }
-header{
+.header{
   display: flex;
   align-items: center;
   width: 100%;

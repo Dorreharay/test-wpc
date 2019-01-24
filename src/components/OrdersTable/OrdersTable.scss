@@ -8,7 +8,7 @@ a {
 }
 .orderTypes {
   width: 35%;
-  height: 53px;
+  height: 4.3rem;
   margin-bottom: 0;
   margin-left: 2vw;
   font-family: RobotoSlab-Regular;
@@ -21,7 +21,7 @@ a {
     padding: 0.6vw;
     border: 1px solid #d4d4d4;
     border-bottom: 0px;
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
     background: #dadada;
     cursor: pointer;
   }
@@ -31,7 +31,7 @@ a {
     align-items: center;
     min-width: 165px;
     padding: 0.6vw;
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
     color: white;
     background: #e74a4a;
     cursor: pointer;
@@ -47,17 +47,22 @@ tbody {
   border-radius: 7px;
   box-shadow: 0 0 50px rgb(221, 221, 221);
 }
-th {
-  padding: 15px;
+th{
+  padding: 1rem;
   text-align: left;
   border: 1px solid #f3f3f3;
   background: white;
   font-family: RobotoSlab-Regular;
 }
+.td{
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #f0f0f0;
+  font-family: RobotoSlab-Regular;
 
 td {
   margin: 0;
-  padding: 15px;
+  padding: 1rem;
   border: 1px solid #f3f3f3;
   font-family: RobotoSlab-Regular;
 
@@ -173,6 +178,11 @@ tbody tr:first-of-type:hover {
   font-size: 18px;
   font-family: RobotoSlab-Regular;
 }
+@media screen and (max-width: 1055px){
+  .paginationTop{
+    display: none;
+  }
+}
 @font-face {
   font-family: PT Mono;
   src: url('../../assets/fonts/PT-Mono.ttf');
@@ -183,5 +193,5 @@ tbody tr:first-of-type:hover {
 }
 @font-face {
   font-family: RobotoSlab-Regular;
-  src: url('../../assets/fonts/RobotoSlab-Regular.ttf');
+  src: url("../../assets/fonts/RobotoSlab-Regular.ttf");
 }

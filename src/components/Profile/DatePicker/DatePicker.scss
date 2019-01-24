@@ -1,0 +1,15 @@
+.calendar{
+    font-size: 0.85em;
+    margin: 0;
+    padding: 0;
+    &
+    .grayed{
+        background: #ccc;
+    }
+    td{
+        padding: 0;
+    }
+    th{
+        padding: 0;
+    }
+}

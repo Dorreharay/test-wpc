@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import { Profile, Header } from 'components';
-import { Home } from 'containers';
+import { Header } from 'components';
+import { Home, Profile } from "containers";
 
 import './App.scss';
 

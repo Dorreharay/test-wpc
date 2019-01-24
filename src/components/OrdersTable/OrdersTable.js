@@ -127,14 +127,14 @@ class OrdersTable extends Component {
 
     return ordersList.length !== 0 ? (
       <div>
-        <Pagination
-          className={styles.paginationTop}
-          ordersList={ordersList}
-          togglePage={this.togglePage}
-          page={page}
-          toPreviousPage={this.toPreviousPage}
-          toNextPage={this.toNextPage}
-        />
+          <Pagination
+              className={styles.paginationTop}
+              ordersList={ordersList}
+              togglePage={this.togglePage}
+              page={page}
+              toPreviousPage={this.toPreviousPage}
+              toNextPage={this.toNextPage}
+            />
         <ul className={styles.orderTypes}>
           {orderTypes.map((orderType, index) => (
             <li
@@ -146,7 +146,7 @@ class OrdersTable extends Component {
             </li>
           ))}
         </ul>
-
+        
         <table>
           <tbody>
             <tr>

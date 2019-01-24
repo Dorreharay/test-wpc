@@ -47,7 +47,7 @@ module.exports = {
           'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|jpg|png)$/,
+        test: /\.(woff(2)?|ttf|otf|eot|svg|jpg|png|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {

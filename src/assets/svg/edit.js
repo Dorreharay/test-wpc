@@ -1,10 +1,15 @@
 import React from 'react';
 
-export default ({ className, onClick }) =>
+export default ({ className, onClick }) => (
   <svg
     onClick={onClick}
     className={className}
-    version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xlink="http://www.w3.org/1999/xlink" enableBackground="new 0 0 129 129">
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 129 129"
+    xlink="http://www.w3.org/1999/xlink"
+    enableBackground="new 0 0 129 129"
+  >
     <g>
       <g>
         <path d="m119.2,114.3h-109.4c-2.3,0-4.1,1.9-4.1,4.1s1.9,4.1 4.1,4.1h109.5c2.3,0 4.1-1.9 4.1-4.1s-1.9-4.1-4.2-4.1z" />
@@ -12,3 +17,4 @@ export default ({ className, onClick }) =>
       </g>
     </g>
   </svg>
+);

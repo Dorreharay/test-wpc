@@ -1,20 +1,21 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
-      containers: path.resolve(__dirname, "src/containers"),
-      components: path.resolve(__dirname, "src/components")
-    }
+      containers: path.resolve(__dirname, 'src/containers'),
+      components: path.resolve(__dirname, 'src/components'),
+    },
   },
   devServer: {
     inline: true,
@@ -28,44 +29,44 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
+            loader: 'html-loader',
+            options: { minimize: true },
+          },
+        ],
       },
       {
         test: /\.(css|scss)$/,
         loader:
-          "style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader"
+          'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg|jpg|png|jpeg|gif)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "[name].[ext]",
-            outputPath: "assets/fonts"
-          }
-        }
-      }
-    ]
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts',
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new ErrorOverlayPlugin(),
-  ]
+  ],
 };

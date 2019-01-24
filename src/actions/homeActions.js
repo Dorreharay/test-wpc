@@ -1,7 +1,8 @@
 import actionTypes from '../actionTypes/actionTypes';
 
-export const startAsyncAction = () => ({
+export const getOrders = (orderType) => ({
   type: actionTypes.START_ASYNC_ACTION,
+  payload: { orderType },
 });
 
 export const successAsyncAction = (data) => ({
@@ -36,4 +37,13 @@ export const toggleEditMode = () => ({
 export const applyEditChanges = (formData) => ({
   type: actionTypes.APPLY_EDIT_CHANGES,
   payload: { formData },
+});
+
+export const toggleDeleteMode = () => ({
+  type: actionTypes.TOGGLE_DELETE_MODE,
+});
+
+export const deleteOrder = (indexToDelete) => ({
+  type: actionTypes.DELETE_ORDER,
+  payload: { indexToDelete },
 });

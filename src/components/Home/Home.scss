@@ -1,14 +1,14 @@
-html{
-  background: rgb(231, 231, 231)
+html {
+  background: rgb(231, 231, 231);
 }
-.main{
+.main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   opacity: 0;
   transition: opacity 250ms ease-in;
 }
-.mainActive{
+.mainActive {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,7 +16,7 @@ html{
   transition: opacity 250ms ease-in;
 }
 
-.default{
+.default {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,5 @@ html{
 }
 @font-face {
   font-family: PT Mono;
-  src: url("../../assets/fonts/PT-Mono.ttf");
+  src: url('../../assets/fonts/PT-Mono.ttf');
 }
-
-

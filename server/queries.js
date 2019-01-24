@@ -7,10 +7,30 @@ const pool = new Pool({
   port: 5432,
 })
 
-
-
 function getOrders(request, response) {
-  pool.query('SELECT * FROM companies ORDER BY id ASC', (error, results) => {
+
+  pool.query(`SELECT * FROM companies ORDER BY id ASC`, (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+function getOrderType(request, response) {
+
+  pool.query(`SELECT * FROM companies WHERE ordertype = '${request.params.ordertype}' ORDER BY id ASC`, (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+function getOrderById(request, response) {
+  const id = parseInt(request.params.id)
+
+  pool.query('SELECT * FROM companies WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -71,12 +91,14 @@ function updateOrder(request, response) {
     address,
     registered,
     name,
-    email
+    email,
+    ordertype
   } = request.body
 
+
   pool.query(
-    'UPDATE companies SET index = $1, guid = $2, balance = $3, phone = $4, address = $5, registered = $6, name = $7, email = $8 WHERE id = $9',
-    [index, guid, balance, phone, address, registered, name, email, id],
+    'UPDATE companies SET index = $1, guid = $2, balance = $3, phone = $4, address = $5, registered = $6, name = $7, email = $8, ordertype = $9 WHERE id = $10',
+    [index, guid, balance, phone, address, registered, name, email, ordertype, id],
     (error, results) => {
       if (error) {
         throw error
@@ -99,6 +121,7 @@ function deleteOrder(request, response) {
 
 module.exports = {
   getOrders,
+  getOrderType,
   getOrderById,
   createOrder,
   updateOrder,

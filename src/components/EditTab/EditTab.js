@@ -1,6 +1,4 @@
 import React from 'react';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
 
 import BackIcon from '../../assets/svg/back-arrow-icon.js';
 

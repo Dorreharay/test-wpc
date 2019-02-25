@@ -7,7 +7,7 @@ module.exports = {
   entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: 'bundle.js',
     publicPath: '/',
   },
   resolve: {
@@ -26,13 +26,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
         test: /\.html$/,
         use: [
           {
@@ -43,8 +36,18 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader:
-          'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg|jpg|png|jpeg|gif)$/,

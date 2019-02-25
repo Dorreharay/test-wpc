@@ -1,35 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Header.scss';
+import './Header.scss';
 
 function Header({ currentLocation }) {
   return (
-    <header className={styles.header}>
-      {/* teamHub */}
-      {/* <div className={styles.logotype}>teamHub</div> */}
-      <div className={styles.nav}>
-        <ul className={styles.ulNav}>
-          <Link to="/orders" className={currentLocation === '/orders' ? styles.tabHovered : styles.tab}>
-            Замовлення
+    <header className="header">
+      <div className="lg" />
+      <div className="nav">
+        <ul className="ulNav">
+          <Link to="/" className={currentLocation === '/' ? 'tabHovered' : 'tab'}>
+            Рецепт
           </Link>
           <Link
-            to="/tariffs-and-payments"
-            className={currentLocation === '/tariffs-and-payments' ? styles.tabHovered : styles.tab}
+            to="b"
+            className={currentLocation === '/b' ? 'tabHovered' : 'tab'}
           >
-            Тарифи та оплата
+            Облік
           </Link>
-          <Link to="/profile" className={currentLocation === '/profile' ? styles.tabHovered : styles.tab}>
-            Профіль
+          <Link to="/c" className={currentLocation === '/c' ? 'tabHovered' : 'tab'}>
+            Зміни
           </Link>
           <Link
-            to="/rules-of-returning"
-            className={currentLocation === '/rules-of-returning' ? styles.tabHovered : styles.tab}
+            to="/d"
+            className={currentLocation === '/d' ? 'tabHovered' : 'tab'}
           >
-            Правила повернення
+            Правила
           </Link>
         </ul>
-        <button className={styles.exit}>
+        <button type="button" className="exit">
           <Link to="/">Вийти</Link>
         </button>
       </div>

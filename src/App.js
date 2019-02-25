@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
-import { Header } from 'components';
-import { Home, Profile } from "containers";
+import { Header, Loader } from 'components';
+import { Home } from 'containers';
 
 import './App.scss';
 
@@ -14,22 +12,11 @@ function App() {
       <Route
         render={({ location }) => (
           <div>
-            {location.pathname === '/' ? null : <Header currentLocation={location.pathname} />}
-            {/* <TransitionGroup>
-            <CSSTransition
-              key={location.key}
-              timeout={{ enter: 300, exit: 300 }}
-              classNames='fade'
-            > */}
-
+            <Header currentLocation={location.pathname} />
             <Switch location={location}>
-              <Route exact path="/orders" component={Home} />
-              <Route exact path="/profile" component={Profile} />
-              <Route render={() => <div style={{ marginLeft: '47%', marginTop: '20%' }}>Not Found</div>} />
+              <Route exact path="/" component={Home} />
+              <Route render={() => <Loader />} />
             </Switch>
-
-            {/* </CSSTransition>
-          </TransitionGroup> */}
           </div>
         )}
       />

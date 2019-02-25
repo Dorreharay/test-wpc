@@ -1,2 +1,1 @@
-export Home from "./Home";
-export Profile from './Profile';
+export Home from "./Home/Home";

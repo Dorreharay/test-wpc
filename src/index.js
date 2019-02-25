@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 
 import createSagaMiddleware from 'redux-saga';
 
-import { rootReducer } from './reducers';
+import App from './App';
+
+import rootReducer from './reducers';
 import sagaWatcher from './sagas/sagas';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

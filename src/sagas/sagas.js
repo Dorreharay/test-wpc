@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { successAsyncAction } from '../actions/homeActions';
 import actionTypes from '../actionTypes/actionTypes';
 
@@ -8,7 +8,8 @@ function* fetchData(action) {
   try {
     const data = yield call(fetch, url);
     const todos = yield data.json();
-    let results = [];
+
+    const results = [];
 
     while (todos.length) {
       results.push(todos.splice(0, pageSize));
@@ -34,7 +35,9 @@ function* asyncUpdateOrder(action) {
       },
     });
     yield put({ type: actionTypes.SUCCESS_UPDATE_ORDER });
-  } catch {}
+  } catch (e) {
+    console.error(e.message);
+  }
 }
 
 function* asyncDeleteOrder(action) {
@@ -50,7 +53,9 @@ function* asyncDeleteOrder(action) {
       },
     });
     yield put({ type: actionTypes.SUCCESS_UPDATE_ORDER });
-  } catch {}
+  } catch (e) {
+    console.error(e.message);
+  }
 }
 
 function* sagaWatcher() {

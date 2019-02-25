@@ -1,87 +1,70 @@
-import React, { Component } from 'react';
-import { Header, TableMenu, OrdersTable, Loader } from 'components';
+import React from 'react';
+import { Formik } from 'formik';
 
-import styles from './Home.scss';
+import { Loader } from 'components';
+import './Home.scss';
 
-class Home extends Component {
-  state = {
-    settingsToggled: false,
-  };
-
-  handleAsyncAction = () => {
-    const { getOrders, orderListTypeCurrent } = this.props;
-    getOrders(orderListTypeCurrent);
-  };
-
-  chooseProject = (projectName) => {
-    this.props.chooseProject(projectName);
-  };
-  chooseOrdersListType = (orderListType) => {
-    this.props.chooseOrdersListType(orderListType);
-  };
-
-  applyEditChanges = (formData) => {
-    this.props.applyEditChanges(formData);
-  };
-
-  render() {
-    const {
-      toggleEditMode,
-      editMode,
-      toggleDeleteMode,
-      deleteMode,
-      copiedToClickboard,
-      projectName,
-      projectsList,
-      ordersList,
-      orderTypes,
-      location,
-      loading,
-      getOrders,
-      copyToClipboardAction,
-      resetClipboard,
-      isEdited,
-      orderListTypeCurrent,
-      deleteOrder,
-    } = this.props;
-
-    return (
-      <div className={location.pathname === '/orders' ? styles.mainActive : styles.main}>
-        <TableMenu
-          projectName={projectName}
-          projectsList={projectsList}
-          chooseProject={this.chooseProject}
-          toggleEditMode={toggleEditMode}
-          editMode={editMode}
-          toggleDeleteMode={toggleDeleteMode}
-          deleteMode={deleteMode}
-        />
-        {projectName === 'Виберіть проект' ? (
-          <div className={styles.default}>Виберіть проект зі списку для початку роботи з системою</div>
-        ) : (
-          <OrdersTable
-            projectName={projectName}
-            ordersList={ordersList}
-            orderTypes={orderTypes}
-            chooseOrdersListType={this.chooseOrdersListType}
-            getOrders={getOrders}
-            orderListTypeCurrent={orderListTypeCurrent}
-            copyToClipboardAction={copyToClipboardAction}
-            resetClipboard={resetClipboard}
-            copiedToClickboard={copiedToClickboard}
-            editMode={editMode}
-            deleteMode={deleteMode}
-            isEdited={isEdited}
-            deleteOrder={deleteOrder}
-            applyEditChanges={this.applyEditChanges}
-            loading={loading}
-          />
+function Home({ loading }) {
+  return (
+    <main>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.email) {
+            errors.email = <div className="message">Required</div>;
+          } else if (
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          ) {
+            errors.email = <div className="message">Invalid email address</div>;
+          }
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(false);
+          console.log("anime")
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+              />
+              {errors.email && touched.email && errors.email}
+            </div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+              />
+              {errors.password && touched.password && errors.password}
+            </div>
+        
+            <button type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </form>
         )}
-
-        {/* {loading ? <Loader /> : null} */}
-      </div>
-    );
-  }
+      </Formik>
+      {loading ? <Loader /> : null}
+    </main>
+  );
 }
 
 export default Home;

@@ -3,15 +3,17 @@ import HollowDotsSpinner from '@bit/bondz.react-epic-spinners.hollow-dots-spinne
 
 import './Loader.scss';
 
-function Loader() {
+function Loader({ loading }) {
   return (
-    <div className="loader">
+    // <div className={`loader ${!loading && 'hidden'}`}>
+    <div className={`loader ${!loading && 'hidden'}`}>
       <HollowDotsSpinner
         color="#1E407C"
+        className={`color ${!loading && 'hidden'}`}
         animationDuration={1000}
       />
     </div>
-  );
+  ) 
 }
 
 export default Loader;

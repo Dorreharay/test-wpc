@@ -1,7 +1,8 @@
-import actionTypes from '../actionTypes/actionTypes';
+import actionTypes from '../../actionTypes/actionTypes';
 
 const initState = {
   loading: false,
+  data: [[]],
 };
 
 export default function HomeReducer(state = initState, action) {
@@ -9,8 +10,13 @@ export default function HomeReducer(state = initState, action) {
     case actionTypes.SUCCESS_ASYNC_ACTION:
       return {
         ...state,
-        ordersList: action.payload.data,
+        data: action.payload.data,
         loading: false,
+      };
+    case actionTypes.START_ASYNC_ACTION:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

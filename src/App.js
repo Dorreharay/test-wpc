@@ -12,10 +12,10 @@ function App() {
       <Route
         render={({ location }) => (
           <div>
-            <Header currentLocation={location.pathname} />
+            {/* <Header currentLocation={location.pathname} /> */}
             <Switch location={location}>
               <Route exact path="/" component={Home} />
-              <Route render={() => <Loader />} />
+              <Route render={() => <div className="not_found">Page not found</div>} />
             </Switch>
           </div>
         )}

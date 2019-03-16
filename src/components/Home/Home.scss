@@ -34,6 +34,14 @@ form {
       color: red;
       font-size: 0.7em;
     }
+    .required{
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      padding-left: 15px;
+      color: orange;
+      font-size: 0.7em;
+    }
   }
   button {
     width: 100%;
@@ -44,6 +52,10 @@ form {
     background: #1E407C;
     cursor: pointer;
   }
+}
+.background {
+  width: 100vw;
+  height: 100vh;
 }
 @font-face {
   font-family: PT Mono;
